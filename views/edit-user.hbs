@@ -1,0 +1,18 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+  </ol>
+</nav>
+
+{{#if alert}}
+<div class="alert alert-{{alert}}" role="alert">
+  {{msg}} 
+</div>
+{{/if}}
+
+{{#each rows}}
+<form method="POST" action="/edituser/{{this.id}}">
+  {{> userform}}
+</form>
+{{/each}}

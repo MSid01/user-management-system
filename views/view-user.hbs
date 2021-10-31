@@ -1,0 +1,25 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">View User</li>
+  </ol>
+</nav>
+
+{{#each rows}}
+
+<dl class="row">
+  <dt class="col-lg-3">Name</dt>
+  <dd class="col-lg-9">: {{this.first_name}} {{this.last_name}}</dd>
+
+  <dt class="col-lg-3">Email</dt>
+  <dd class="col-lg-9">: {{this.email}}
+  </dd>
+
+  <dt class="col-lg-3">Phone Number</dt>
+  <dd class="col-lg-9">: {{this.phone}}</dd>
+
+  <dt class="col-lg-3 text-truncate">Comments</dt>
+  <dd class="col-lg-9">: {{this.comments}}</dd>
+
+</dl>
+{{/each}}

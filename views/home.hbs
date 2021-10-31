@@ -1,0 +1,59 @@
+
+<div class="row">
+  <div class="col-6"><h1>Users</h1></div>
+  <div class="col-6 d-flex justify-content-end">
+    <a href="/adduser" type="button" class="btn btn-primary align-self-center">ADD NEW</a>
+  </div>
+  <div></div>
+</div>
+
+
+<table class="table table-bordered">
+  <thead class="thred-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col" class="text-center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each rows}}
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.first_name}}</td>
+      <td>{{this.last_name}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.phone}}</td>
+      <td class="text-center">
+          <a href="/viewuser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i>View</a>
+          <a href="/edituser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>Edit</a>
+          <a type="button" class="btn btn-light btn-small" data-toggle="modal" data-target="#{{this.id}}" id="submit"><i class="bi bi-trash"></i>Delete</a>
+      </td>
+    </tr>
+
+<div class="modal fade" id={{this.id}} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Are you Sure?</h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="/{{id}}" type="button" class="btn btn-primary">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+          
+    {{/each}}
+  </tbody>
+</table>
